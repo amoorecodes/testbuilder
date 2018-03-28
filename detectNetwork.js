@@ -42,8 +42,6 @@ var detectNetwork = function(cardNumber) {
 		return 'Diner\'s Club';
 	} else if (amex.some(isPrefix) && length(15)) {
 		return 'American Express';
-	} else if (isPrefix(visa) && [13,16,19].some(length)) {
-		return 'Visa';
 	} else if (masterCard.some(isPrefix) && length(16)) {
 		return 'MasterCard';
 	} else if (discover.some(isPrefix) && [16,19].some(length)) {
@@ -54,6 +52,8 @@ var detectNetwork = function(cardNumber) {
 		return 'China UnionPay';
 	} else if (switchCard.some(isPrefix) && [16,18,19].some(length)) {
 		return 'Switch';
+	} else if (isPrefix(visa) && [13,16,19].some(length)) {
+		return 'Visa';
 	}
 
   // Note: `cardNumber` will always be a string
